@@ -21,7 +21,7 @@ steps:
 
 - script: |
    echo "Removing existing code"
-   rm -rf "WORKSPACE"
+   rm -rf "/home/azureuser/myagent/_work/1/s/"
     echo "Cloning Repository"
     git clone -b main $(REPO_URL) $(WORKSPACE)
   displayName: 'Cloning Repository'
