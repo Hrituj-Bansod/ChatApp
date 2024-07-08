@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - main
 
@@ -15,13 +20,11 @@ variables:
 steps:
 
 - script: |
-    echo "Fetching latest changes"
-    if [ -d "$(WORKSPACE)" ]; then
-      cd $(WORKSPACE) && git pull origin main
-    else
-      git clone -b main $(REPO_URL) $(WORKSPACE)
-    fi
-  displayName: 'Fetching latest changes'
+   echo "Removing existing code"
+   rm -rf "WORKSPACE"
+    echo "Cloning Repository"
+    git clone -b main $(REPO_URL) $(WORKSPACE)
+  displayName: 'Cloning Repository'
 
 - script: |
     echo "Copying Code to Remote Server"
@@ -35,12 +38,12 @@ steps:
 
 - script: |
     echo "Copying fundoo file to Actual Location"
-    ssh $(BACKEND_USER)@$(BACKEND_VM) 'cp -rf /tmp/ChatApp/fundoo /new_chatapp'
+    ssh $(BACKEND_USER)@$(BACKEND_VM) 'cp -rf /tmp/ChatApplication/fundoo /new_chatapp'
   displayName: 'Copying fundoo file to Actual Location'
 
 - script: |
     echo "Copying requirements.txt to Actual Location"
-    ssh $(BACKEND_USER)@$(BACKEND_VM) 'cp -rf /tmp/ChatApp/requirements.txt /new_chatapp'
+    ssh $(BACKEND_USER)@$(BACKEND_VM) 'cp -rf /tmp/ChatApplication/requirements.txt /new_chatapp'
   displayName: 'Copying requirements.txt to Actual Location'
 
 - script: |
