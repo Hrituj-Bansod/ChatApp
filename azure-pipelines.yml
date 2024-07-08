@@ -9,7 +9,7 @@ trigger:
 pool:
   name: 'ChatApp-pool'  # Use the name of your self-hosted agent pool
   demands:
-  - agent.name -equals <your-agent-name>  # Optional, if you want to target a specific agent
+  - agent.name -equals backend-agent  # Optional, if you want to target a specific agent
 
 variables:
   BACKEND_VM: '172.168.24.7'
