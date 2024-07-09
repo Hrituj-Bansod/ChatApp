@@ -16,12 +16,12 @@ variables:
   BACKEND_USER: 'azureuser'
   REPO_URL: 'https://github.com/Hrituj-Bansod/ChatApp.git'
   #WORKSPACE: '$(System.DefaultWorkingDirectory)'
-  WORKSPACE:  ''
+  WORKSPACE:  '/home/azureuser/myagent/_work/chatappcode'
 steps:
 
 - script: |
-    //echo "Removing existing code"
-    //rm -rf ""
+    echo "Removing existing code"
+    rm -rf "/home/azureuser/myagent/_work/chatappcode/"
     echo "Cloning Repository"
     git clone -b main $(REPO_URL) $(WORKSPACE)
   displayName: 'Cloning Repository'
