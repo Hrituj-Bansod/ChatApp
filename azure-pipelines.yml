@@ -53,7 +53,7 @@ steps:
 
 - script: |
     echo "Making Migrations"
-    ssh $(BACKEND_USER)@$(BACKEND_VM) 'source /new_chatapp/venv/bin/activate && cd /new_chatapp && python3 manage.py makemigrations && python3 manage.py migrate'
+    ssh $(BACKEND_USER)@$(BACKEND_VM) 'source /new_chatapp/venv/bin/activate && cd /new_chatapp/fundoo && python3 manage.py makemigrations && python3 manage.py migrate'
   displayName: 'Making Migrations'
 
 - script: |
