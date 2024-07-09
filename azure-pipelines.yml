@@ -23,7 +23,7 @@ steps:
     //echo "Removing existing code"
     //rm -rf ""
     echo "Cloning Repository"
-    git pull -b main $(REPO_URL) $(WORKSPACE)
+    git clone -b main $(REPO_URL) $(WORKSPACE)
   displayName: 'Cloning Repository'
 
 - script: |
