@@ -107,7 +107,7 @@ DATABASES = {
         'USER': 'Chatappuser',
         'PASSWORD': 'Chatappuser@123',
         'HOST': os.environ.get("DATABASE_HOST"),
-        'PORT': '3306',
+        'PORT': '3306'
     }
 }
 #sagar kadam
